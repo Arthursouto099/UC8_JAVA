@@ -14,16 +14,23 @@ public class BankAccount {
     private double balance;
     
     
-    public BankAccount(User user, int initialBalance, CreditCard creditCard) {
+    public BankAccount(User user, double initialBalance, CreditCard creditCard) {
         this.owner = user;
         this.balance = initialBalance;
         this.creditCard = creditCard;
+        this.creditCard.setBankAccount(this);
+        this.creditCard.setOwner(this.owner);
     } 
     
     public double getBalance() {
         return this.balance;
     }
     
+    public void incrementBalance(double value) {
+        this.balance += value;
+    }
+    
+
     public void withdraw(double value) {
         
         if(value > this.balance) {
@@ -33,12 +40,22 @@ public class BankAccount {
         
         else {
             this.balance -= value;
-            System.out.println("Saldo realizado com sucesso, valor atual: " + this.balance);
+            System.out.println("Saque realizado com sucesso, valor atual: " + this.balance);
         }
     }
     
-    public void depositCreditCard(BankAccount account ) {
+    public void  transferCreditCard( double value, BankAccount account ) {
+        if(value > this.balance) {
+            System.out.println("Saldo insuficiente ");
+            return;
+        }
         
+        this.creditCard.processPayment(value, account);
+        
+    }
+    
+    public void getLastTransfer() {
+        this.creditCard.getDetails();
     }
     
     

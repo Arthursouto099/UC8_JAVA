@@ -11,21 +11,47 @@ package com.mycompany.paymentplataform;
 public class CreditCard implements Payment {
        String numberCard;
        int securityCode;
-       User owner; 
+       private User owner; 
+       private BankAccount account;
+       double currentTransfer; 
        
        public CreditCard(String numberCard, int securityCode ) {
            this.numberCard = numberCard;
            this.securityCode = securityCode;
        } 
+       
+       public BankAccount getBankAccount() {
+           return this.account;
+       }
+       
+       public void setBankAccount(BankAccount account) {
+           this.account = account;
+       }
+       
+       public void setOwner(User owner) {
+           this.owner = owner;
+       }
 
     @Override
     public void processPayment(double value, BankAccount account) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.account.withdraw(value);
+        this.currentTransfer = value;
+        account.incrementBalance(value);
+        System.out.println("Tranferencia realizado no valor de " + value);
     }
 
     @Override
     public void getDetails() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(this.currentTransfer > 0) {
+        System.out.println("Titular: " + this.owner.name);
+        System.out.println("Cpf do Titular: " + this.owner.getCpf());
+        System.out.println("Final do cartão de credito: " + "XXXX" + this.numberCard.substring(4, 8));
+        System.out.println("Valor da transferencia: " + this.currentTransfer );
+        }else {
+            System.out.println("Você ainda não realizou nenhuma transferencia");
+        }
+        
+       
     }
 }
        
