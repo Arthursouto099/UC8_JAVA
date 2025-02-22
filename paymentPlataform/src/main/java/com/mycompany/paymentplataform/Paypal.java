@@ -6,31 +6,25 @@ package com.mycompany.paymentplataform;
 
 /**
  *
- * @author ARTHURSANTOSTAVARESS
+ * @author Usuario
  */
-public class CreditCard implements Payment {
-       String numberCard;
-       int securityCode;
-       private User owner; 
-       private BankAccount account;
-       double currentTransfer; 
-       
-       public CreditCard(String numberCard, int securityCode ) {
-           this.numberCard = numberCard;
-           this.securityCode = securityCode;
-       } 
-       
-       public BankAccount getBankAccount() {
-           return this.account;
-       }
-       
-       public void setBankAccount(BankAccount account) {
-           this.account = account;
-       }
-       
-       public void setOwner(User owner) {
-           this.owner = owner;
-       }
+public class Paypal implements Payment {
+    private String email;
+    private User owner;
+    private BankAccount account;
+    private double currentTransfer;
+    
+    public Paypal(String email) {
+        this.email = email;
+    }
+    
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+    
+    public void setBankAccount(BankAccount account) {
+        this.account = account;
+    }
 
     @Override
     public void processPayment(double value, BankAccount account) {
@@ -38,22 +32,20 @@ public class CreditCard implements Payment {
         this.currentTransfer = value;
         account.incrementBalance(value);
         System.out.println("Tranferencia realizado no valor de " + value);
+        
     }
 
     @Override
     public void getDetails() {
-        if(this.currentTransfer > 0) {
+         if(this.currentTransfer > 0) {
         System.out.println("Titular: " + this.owner.name);
         System.out.println("Cpf do Titular: " + this.owner.getCpf());
-        System.out.println("Final do cartão de credito: " + "XXXX" + this.numberCard.substring(4, 8));
+        System.out.println("Transferencia utilizando paypal");
         System.out.println("Valor da transferencia: " + this.currentTransfer );
         System.out.println("--------------------------------------------------");
         }else {
             System.out.println("Você ainda não realizou nenhuma transferencia");
         }
-        
-       
     }
+    
 }
-       
-

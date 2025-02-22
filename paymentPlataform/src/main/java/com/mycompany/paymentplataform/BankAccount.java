@@ -10,8 +10,11 @@ package com.mycompany.paymentplataform;
  */
 public class BankAccount {
     User owner;
-    CreditCard creditCard;
+    private CreditCard creditCard;
+    private Paypal paypal;
+    String email;
     private double balance;
+    
     
     
     public BankAccount(User user, double initialBalance, CreditCard creditCard) {
@@ -20,6 +23,10 @@ public class BankAccount {
         this.creditCard = creditCard;
         this.creditCard.setBankAccount(this);
         this.creditCard.setOwner(this.owner);
+        this.paypal = new Paypal(this.email);
+        this.paypal.setBankAccount(this);
+        this.paypal.setOwner(this.owner);
+        
     } 
     
     public double getBalance() {
@@ -54,8 +61,23 @@ public class BankAccount {
         
     }
     
-    public void getLastTransfer() {
+    public void transferPayPal(double value, BankAccount account) {
+        if(value > this.balance) {
+            System.out.println("Saldo insuficiente");
+            return;
+        }
+        
+        this.paypal.processPayment(value, account);
+        
+        
+    }
+    
+    public void getLastTransferCreditCard() {
         this.creditCard.getDetails();
+    }
+    
+    public void getLastTransferPaypal() {
+        this.paypal.getDetails();
     }
     
     
