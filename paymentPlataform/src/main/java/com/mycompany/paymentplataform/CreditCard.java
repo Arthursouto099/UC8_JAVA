@@ -45,7 +45,7 @@ public class CreditCard implements Payment {
         if(this.currentTransfer > 0) {
         System.out.println("Titular: " + this.owner.name);
         System.out.println("Cpf do Titular: " + this.owner.getCpf());
-        System.out.println("Final do cartão de credito: " + "XXXX" + this.numberCard.substring(4, 8));
+        System.out.println("Final do cartão de credito: " + "XXXX" + this.numberCard.substring(this.numberCard.length() - 4));
         System.out.println("Valor da transferencia: " + this.currentTransfer );
         System.out.println("--------------------------------------------------");
         }else {

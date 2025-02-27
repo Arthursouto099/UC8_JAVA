@@ -17,10 +17,11 @@ public class BankAccount {
     
     
     
-    public BankAccount(User user, double initialBalance, CreditCard creditCard) {
+    public BankAccount(User user, double initialBalance, CreditCard creditCard, String email) {
         this.owner = user;
         this.balance = initialBalance;
         this.creditCard = creditCard;
+        this.email = email;
         this.creditCard.setBankAccount(this);
         this.creditCard.setOwner(this.owner);
         this.paypal = new Paypal(this.email);

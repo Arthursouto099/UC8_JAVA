@@ -39,6 +39,7 @@ public class Paypal implements Payment {
     public void getDetails() {
          if(this.currentTransfer > 0) {
         System.out.println("Titular: " + this.owner.name);
+        System.out.println("Email: " + this.email);
         System.out.println("Cpf do Titular: " + this.owner.getCpf());
         System.out.println("Transferencia utilizando paypal");
         System.out.println("Valor da transferencia: " + this.currentTransfer );
