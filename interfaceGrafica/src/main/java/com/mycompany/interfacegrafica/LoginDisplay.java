@@ -3,18 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.interfacegrafica;
-
+import java.util.ArrayList;
 /**
  *
  * @author ARTHURSANTOSTAVARESS
  */
 public class LoginDisplay extends javax.swing.JFrame {
-
+    LoggedDisplay displayLogged = new LoggedDisplay();
+    ArrayList<User> usersLogged = new ArrayList<>(); 
+    
     /**
      * Creates new form LoginDisplay
      */
     public LoginDisplay() {
         initComponents();
+        usersLogged.add(new User("Arthur", "arthur@gmail.com", "123"));
+        
      
     }
 
@@ -50,7 +54,16 @@ public class LoginDisplay extends javax.swing.JFrame {
         jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(242, 242, 242), 2, true));
 
         inputName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        inputName.setText("Insira seu nome...");
         inputName.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        inputName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                inputNameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inputNameFocusLost(evt);
+            }
+        });
         inputName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputNameActionPerformed(evt);
@@ -58,14 +71,32 @@ public class LoginDisplay extends javax.swing.JFrame {
         });
 
         inputEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        inputEmail.setText("Insira seu email...");
         inputEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        inputEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                inputEmailFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inputEmailFocusLost(evt);
+            }
+        });
         inputEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputEmailActionPerformed(evt);
             }
         });
 
+        inputSenha.setText("123456789");
         inputSenha.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        inputSenha.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                inputSenhaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inputSenhaFocusLost(evt);
+            }
+        });
         inputSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputSenhaActionPerformed(evt);
@@ -166,7 +197,7 @@ public class LoginDisplay extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inputNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNameActionPerformed
-        // TODO add your handling code here:
+           
     }//GEN-LAST:event_inputNameActionPerformed
 
     private void inputEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmailActionPerformed
@@ -178,12 +209,31 @@ public class LoginDisplay extends javax.swing.JFrame {
     }//GEN-LAST:event_inputSenhaActionPerformed
 
     private void inputButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputButton1ActionPerformed
+        User user = new User(inputName.getText(), inputEmail.getText(), inputSenha.getText());
+        
+        
+        
+        for(int i = 0; i < this.usersLogged.size(); i++) {
+            if((this.usersLogged.get(i).email.equals(user.email)) && this.usersLogged.get(i).getPassword().equals(user.getPassword())) {
+                 
+                 this.setVisible(false);
+                 this.displayLogged.setVisible(true);
+            } 
+        }
+        
+        
+        
+        
+        
+        
         System.out.println("<-- Informações do usuario -->");
-            LoggedDisplay display = new LoggedDisplay();
         System.out.println("Name: " + inputName.getText());
         System.out.println("Email: " + inputEmail.getText());
-        this.setVisible(false);
-        display.setVisible(true);
+        
+        
+        
+       
+        
     
         
        
@@ -194,6 +244,43 @@ public class LoginDisplay extends javax.swing.JFrame {
     private void inputButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputButton2ActionPerformed
+
+    private void inputNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputNameFocusGained
+            if("Insira seu nome...".equals(inputName.getText())) {
+                inputName.setText("");
+            }
+    }//GEN-LAST:event_inputNameFocusGained
+
+    private void inputNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputNameFocusLost
+        if("".equals(inputName.getText())) {
+            inputName.setText("Insira seu nome...");
+        }
+    }//GEN-LAST:event_inputNameFocusLost
+
+    private void inputEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputEmailFocusGained
+         if("Insira seu email...".equals(inputEmail.getText())) {
+             inputEmail.setText("");
+         }
+    }//GEN-LAST:event_inputEmailFocusGained
+
+    private void inputEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputEmailFocusLost
+        if("".equals(inputEmail.getText())) {
+            inputEmail.setText("Insira seu email...");
+        }
+    }//GEN-LAST:event_inputEmailFocusLost
+
+    private void inputSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputSenhaFocusGained
+            if( new String(inputSenha.getPassword()).equals("123456789")) {
+                inputSenha.setText("");
+            }
+    }//GEN-LAST:event_inputSenhaFocusGained
+
+    private void inputSenhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputSenhaFocusLost
+            if(new String(inputSenha.getPassword()).equals("")) {
+                inputSenha.setText("123456789");
+                
+            }
+    }//GEN-LAST:event_inputSenhaFocusLost
 
     /**
      * @param args the command line arguments

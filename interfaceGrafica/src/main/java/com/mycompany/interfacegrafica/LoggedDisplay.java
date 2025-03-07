@@ -4,6 +4,8 @@
  */
 package com.mycompany.interfacegrafica;
 
+import java.awt.Color;
+
 /**
  *
  * @author ARTHURSANTOSTAVARESS
@@ -15,6 +17,7 @@ public class LoggedDisplay extends javax.swing.JFrame {
      */
     public LoggedDisplay() {
         initComponents();
+
     }
 
     /**
@@ -26,47 +29,145 @@ public class LoggedDisplay extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        futebolField = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
+        basqueteField = new javax.swing.JCheckBox();
+        voleiField = new javax.swing.JCheckBox();
+        jButton1 = new javax.swing.JButton();
+        response = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        futebolField.setText("Futebol");
+        futebolField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                futebolFieldActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Você está logado!!! ");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("Qual esportes você pratica?");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(383, 383, 383)
-                .addComponent(jLabel1)
-                .addContainerGap(420, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(456, Short.MAX_VALUE))
-        );
+        basqueteField.setText("Basquete");
+        basqueteField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                basqueteFieldActionPerformed(evt);
+            }
+        });
+
+        voleiField.setText("volei");
+        voleiField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voleiFieldActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Enviar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        response.setText("jLabel2");
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("test");
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(227, 227, 227)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(response)
+                    .addComponent(jButton1)
+                    .addComponent(futebolField)
+                    .addComponent(voleiField)
+                    .addComponent(jLabel1)
+                    .addComponent(basqueteField))
+                .addContainerGap(462, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(187, 187, 187)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(futebolField)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(basqueteField)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(voleiField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addGap(38, 38, 38)
+                .addComponent(response)
+                .addContainerGap(287, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void futebolFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_futebolFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_futebolFieldActionPerformed
+
+    private void basqueteFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basqueteFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_basqueteFieldActionPerformed
+
+    private void voleiFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voleiFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_voleiFieldActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(basqueteField.isSelected() && !voleiField.isSelected() && !futebolField.isSelected()) {
+            response.setText("Você é homem e gosta de contato: Basquete");
+        }
+        
+        else if(futebolField.isSelected()  && !basqueteField.isSelected() && !voleiField.isSelected()) {
+            response.setText("Você é macho: Futebol");
+        }
+        
+        else if(voleiField.isSelected()  && !basqueteField.isSelected() && !futebolField.isSelected()) {
+            response.setText("Tu é baitola: volei");
+        }
+        
+        else if(basqueteField.isSelected() && voleiField.isSelected() && !futebolField.isSelected()) {
+            response.setText("Tu é meio boiola: Basquete e volei");
+        }
+        
+        else if(futebolField.isSelected() && voleiField.isSelected() && !basqueteField.isSelected()) {
+            response.setText("Tu é meio tchola: Futebol e volei");
+        }
+        
+        else if(futebolField.isSelected() && voleiField.isSelected() && !basqueteField.isSelected()) {
+            response.setText("Tu é meio tchola: Futebol e volei");
+        }
+        
+       
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,7 +205,15 @@ public class LoggedDisplay extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox basqueteField;
+    private javax.swing.JCheckBox futebolField;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel response;
+    private javax.swing.JCheckBox voleiField;
     // End of variables declaration//GEN-END:variables
 }
