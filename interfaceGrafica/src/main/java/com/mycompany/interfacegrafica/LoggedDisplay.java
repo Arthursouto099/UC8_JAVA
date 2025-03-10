@@ -160,6 +160,13 @@ public class LoggedDisplay extends javax.swing.JFrame {
             response.setText("Tu é meio tchola: Futebol e volei");
         }
         
+        else if(basqueteField.isSelected() && futebolField.isSelected() && !voleiField.isSelected()) {
+            response.setText("Tu é tipo muito homem: Basquete e futebol");
+        } 
+        
+        else {
+            response.setText("Você é um cara bem atletico: gosta de tudo");
+        }
        
         
         
