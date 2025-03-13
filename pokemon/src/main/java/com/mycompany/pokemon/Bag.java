@@ -8,7 +8,7 @@ import java.util.List;
 import javax.swing.DefaultListModel;
 
 import java.util.ArrayList;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author ARTHURSANTOSTAVARESS
@@ -129,9 +129,9 @@ public class Bag extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Computer");
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("BackPack");
 
         jScrollPane1.setViewportView(computerList);
 
@@ -160,7 +160,7 @@ public class Bag extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(164, 164, 164))
+                .addGap(144, 144, 144))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,7 +196,14 @@ public class Bag extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void moveBackPackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveBackPackButtonActionPerformed
-        this.movePokemon(computerList.getSelectedIndices(), computerModel, backPackModel);
+        if((backPackModel.size() < 6) && (backPackModel.size() + computerList.getSelectedIndices().length) <= 6 ) {
+          this.movePokemon(computerList.getSelectedIndices(), computerModel, backPackModel);  
+        }
+        
+        else {
+            JOptionPane.showMessageDialog(this, "Mochila já está cheia");
+        }
+
 
 
     }//GEN-LAST:event_moveBackPackButtonActionPerformed
