@@ -200,9 +200,7 @@ public class DisplayTable extends javax.swing.JFrame {
             }
         }
         
-        else {
-            JOptionPane.showMessageDialog(this, "Selecione um user primeiro");
-        }
+       
  
         
     }
@@ -210,12 +208,15 @@ public class DisplayTable extends javax.swing.JFrame {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
        int[] indices = this.tableModel.getSelectedRows();
        
+       if(indices.length < 1) {
+           JOptionPane.showMessageDialog(this, "Selecione um User primeiro");
+       }
+       
        if(indices.length == 1) {
               if(indices[0] != -1) {
            this.deleteElemnt(indices[0]);
-       }else {
-           JOptionPane.showMessageDialog(this, "Selecione um user primeiro.");
        }
+       
        }
        else {
           for(int i = indices.length; i > 0; i--) {
@@ -245,6 +246,10 @@ public class DisplayTable extends javax.swing.JFrame {
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
         int[] indices = tableModel.getSelectedRows();
+        
+        if(indices.length < 1) {
+            JOptionPane.showMessageDialog(this, "Selecione um User primeiro.");
+        }
         
         if(indices.length == 1) {
             if(indices[0] != -1) {

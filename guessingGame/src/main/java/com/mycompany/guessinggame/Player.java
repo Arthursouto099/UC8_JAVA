@@ -3,22 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.guessinggame;
-import java.util.Scanner;
+
 /**
  *
  * @author ARTHURSANTOSTAVARESS
  */
 public class Player {
      private String name;
+     private String email;
      
-     public Player() {
-         Scanner myScan = new Scanner(System.in);
-         System.out.println("Digite seu nome: ");
-         this.name = myScan.nextLine();
+     public Player(String name, String email) {
+         
+         this.name = name;
+         this.email = email;
      }
      
      public String getName(){
          return this.name;
+     }
+     
+     public String getEmail() {
+         return this.email;
      }
      
 }

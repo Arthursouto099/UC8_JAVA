@@ -10,15 +10,13 @@ package com.mycompany.guessinggame;
  */
 public class GuessValidator {
         
-    public boolean validateGuess (int guess, int numberToGuess) {
+    public int validateGuess (int guess, int numberToGuess) {
         if(guess > numberToGuess){
-            System.out.println("Seu palpite é muito alto");
-            return false;
+            return 0;
         } else if (guess < numberToGuess) {
-            System.out.println("Seu palpite é muiyo baixo");
-            return false;
+            return 1;
         } else {
-            return true;
+            return 2;
         }
         
     }
