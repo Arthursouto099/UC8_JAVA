@@ -142,7 +142,6 @@ public class GuessingGameRun extends javax.swing.JFrame {
             this.response.setText("TENTATIVAS: " + game.attempts);
             this.response.setText("RESPONSE");
             this.wins.setText("VITORIAS: " + game.win);
-            game.attempts = 0;
             game.numberToGuess = (int) (Math.random() * 100) + 1;
         }
     }//GEN-LAST:event_restartButtonActionPerformed

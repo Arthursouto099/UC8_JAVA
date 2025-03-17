@@ -11,7 +11,6 @@ import java.util.Scanner;
  */
 public class Game {
     int numberToGuess ;
-    private Player player;
     private GuessValidator guessValidator;
     int attempts = 0;
     int win = 0;
@@ -39,7 +38,7 @@ public class Game {
             
             else {
                 text.setText("PARABÉNS " + name + ", DONO DO EMAIL: " + email + "-------> VOCÊ GANHOU");
-                this.win = +1;
+                this.win += 1;
             }
         
         
