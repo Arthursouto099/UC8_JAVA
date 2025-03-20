@@ -15,8 +15,6 @@ public class MyArrayList {
     public static void main(String[] args) {
         ArrayList<Integer> numbers = new ArrayList<>();
         
-        numbers.add(1);
-        
         for(Integer number: numbers) {
             System.out.println(number);
         }
